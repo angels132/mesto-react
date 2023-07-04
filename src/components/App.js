@@ -6,7 +6,8 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 
 function App() {
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
+  const [isEditProfilePopupOpen, setEditProfilePopupOpen] =
+    React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({
@@ -39,7 +40,7 @@ function App() {
     setEditAvatarPopupOpen(false);
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
-    setIsCardDelete(false)
+    setIsCardDelete(false);
     setSelectedCard({ ...selectedCard, isOpen: false });
   }
 
@@ -158,8 +159,8 @@ function App() {
             isOpen={isCardDelete}
             name="confirmDeleteCard"
             id="confirm"
-            title="Вы уверены?">
-          </PopupWithForm>
+            title="Вы уверены?"
+          ></PopupWithForm>
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
           <Footer />
         </div>

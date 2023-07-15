@@ -42,7 +42,7 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        avatar: data.avatar,
+        avatar: data,
       }),
     }).then((res) => this._requestResult(res));
   }
@@ -57,7 +57,7 @@ class Api {
       },
       body: JSON.stringify({
         name: data.name,
-        about: data.job,
+        about: data.about,
       }),
     }).then((res) => this._requestResult(res));
   }
@@ -87,20 +87,10 @@ class Api {
     }).then((res) => this._requestResult(res));
   }
 
-  //* Запрос на добавление лайка карточке
-  addCardLike(data) {
-    return fetch(`${this._baseUrl}/cards/likes/${data}`, {
-      method: "PUT",
-      headers: {
-        authorization: this._token,
-      },
-    }).then((res) => this._requestResult(res));
-  }
-
-  //* Запрос на удаление лайка карточки
-  deleteCardLike(data) {
-    return fetch(`${this._baseUrl}/cards/likes/${data}`, {
-      method: "DELETE",
+  //* Запрос на добавление или удаление лайка карточки
+  changeCardLike(cardId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+      method: !isLiked ? "PUT" : "DELETE",
       headers: {
         authorization: this._token,
       },

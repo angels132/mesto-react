@@ -14,7 +14,6 @@
   background-position: 50% 50%;
   border: 0;
   transition: all .1s linear;
-  display: block;
 }
 
 .elements__delete-button:hover {
